@@ -1,11 +1,6 @@
 spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            client-id: Iv1.a2c0926323fa3bf6
-            client-secret: ad4ec6bf4337b41616b425e8a223cabc013c3c28
+  application:
+    name: betterread_app
   main:
     allow-circular-references: true
   data:
@@ -17,12 +12,19 @@ spring:
       request:
         timeout: 10s
       connection:
-        connect-timeout: 10s
-        init-query-timeout: 10s
+        connection-timeout: 10s
+        init-query-timeout: 10s  
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Iv1.a2c0926323fa3bf6
+            client-secret: ad4ec6bf4337b41616b425e8a223cabc013c3c28
 
 
 datastax.astra:
-  secure-connect-bundle: secure-connect.zip
+      secure-connect-bundle: secure-connect.zip
 
 astra.db:
     id: dca3f11e-733c-4a28-9cbb-f7b49812022c

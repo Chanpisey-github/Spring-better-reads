@@ -1,6 +1,9 @@
-package org.pisey.betterreadapp.book;
+package org.pisey.betterreadapp.books;
+
 import java.time.LocalDate;
 import java.util.List;
+
+
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -10,17 +13,14 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
 
-
 @Table(value = "book_by_id")
 public class Book {
-    
     @Id
     @PrimaryKeyColumn(name = "book_id",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
     private String id;
     @Column("book_name")
     @CassandraType(type = Name.TEXT)
     private String name;
-
     @Column("book_description")
     @CassandraType(type = Name.TEXT)
     private String description;
@@ -37,9 +37,7 @@ public class Book {
     @CassandraType(type = Name.LIST, typeArguments = Name.TEXT)
     private List<String> authorIds;
 
-
-
-
+    
     public String getId() {
         return id;
     }
@@ -82,6 +80,5 @@ public class Book {
     public void setAuthorIds(List<String> authorIds) {
         this.authorIds = authorIds;
     }
-    
 
 }
